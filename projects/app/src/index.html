@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>App</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app">
+  <h1>{{ message }}</h1>
+  <app-material-snackbar v-on:closed="closed" v-bind:message="text" v-bind:action-label="action"></app-material-snackbar>
+</div>
+</body>
+</html>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      message: `This Angular Elements example renders vue string on an Angular Material SnackBar.`,
+      text: 'this string comes from vue!',
+      action: 'omg! That\'s amazing!!! Click here to close.'
+    },
+    methods: {
+      closed: ($event) => console.log(`SnackBar closed! id: ${$event.detail}`)
+    }
+  })
+</script>
